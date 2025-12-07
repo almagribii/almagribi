@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-background text-foreground transition-colors duration-300">
       <h1 className="text-4xl font-bold">Semantic Colors</h1>
 
-      <div className="p-6 rounded-xl border border-border bg-card text-card-foreground font-merri shadow-sm max-w-md">
+      <div className="p-6 rounded-xl border border-border bg-card text-card-foreground shadow-sm max-w-md">
         <h2 className="text-2xl font-semibold mb-2">Ini Kartu Otomatis</h2>
         <p className="mb-6 opacity-90">
           Saya tidak menggunakan prefix "dark:" di HTML saya. Warna saya berubah
