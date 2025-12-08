@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react"; 
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
@@ -16,11 +17,15 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="px-4 py-2 rounded-lg text-xs transition-colors
-                 bg-gray-200 text-gray-900 hover:bg-gray-300
-                 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
-    >
-      {theme === "dark" ? "🌞" : "🌙"}
+      className="p-2 rounded-full transition-colors 
+                 bg-card-foreground text-white 
+                 hover:opacity-80 focus:ring-2 focus:ring-primary/50"
+      aria-label="Toggle theme"
+    >      {theme === "dark" ? (
+        <Sun className="h-5 w-5" /> 
+      ) : (
+        <Moon className="h-5 w-5" /> 
+      )}
     </button>
   );
 }

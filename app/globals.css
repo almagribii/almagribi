@@ -2,36 +2,45 @@
 
 @import "tailwindcss";
 
-/* 1. Definisikan Variabel Warna (CSS Variables) */
 :root {
   font-family: "Merriweather", serif;
 
-  /* Warna untuk Light Mode */
-  --background: #ffffff;
-  --foreground: #171717; /* Hampir hitam */
+  /* --- Warna untuk Light Mode --- */
+  
+  /* Latar Belakang & Teks */
+  --background: #ffffff; /* Putih (Sesuai Permintaan) */
+  --foreground: #0A203F; /* Oxford Blue (Untuk teks utama agar dominan) */
 
-  --card: #f5f5f5;
-  --card-foreground: #171717;
+  /* Kartu & Elemen Sekunder */
+  --card: #E4CEB6; /* Macadamia */
+  --card-foreground: #0A203F; /* Oxford Blue */
 
-  --primary: #2563eb; /* Biru */
-  --primary-foreground: #ffffff;
+  /* Warna Aksi/Primer */
+  --primary: #DAB45D; /* Gold */
+  --primary-foreground: #0A203F; /* Oxford Blue (Teks di atas Gold) */
 
-  --border: #e5e5e5;
+  /* Batas/Border */
+  --border: #f0f0f0; /* Putih keabu-abuan yang lembut */
 }
 
 /* 2. Override variabel saat masuk Dark Mode */
 .dark {
-  /* Warna untuk Dark Mode */
-  --background: #0a0a0a; /* Hampir hitam */
-  --foreground: #ededed; /* Hampir putih */
+  /* --- Warna untuk Dark Mode --- */
+  
+  /* Latar Belakang & Teks */
+  --background: #0a0a0a; /* Hampir Hitam (Sesuai Permintaan) */
+  --foreground: #E4CEB6; /* Macadamia (Untuk teks utama agar kontras) */
 
-  --card: #171717;
-  --card-foreground: #ededed;
+  /* Kartu & Elemen Sekunder */
+  --card: #171717; /* Hampir hitam agar tetap gelap */
+  --card-foreground: #DAB45D; /* Gold */
 
-  --primary: #3b82f6; /* Biru yang lebih terang agar kontras */
-  --primary-foreground: #000000;
+  /* Warna Aksi/Primer */
+  --primary: #DAB45D; /* Gold (Tetap Gold agar menonjol) */
+  --primary-foreground: #0a0a0a; /* Hampir Hitam (Teks di atas Gold) */
 
-  --border: #262626;
+  /* Batas/Border */
+  --border: #262626; 
 }
 
 /* 3. Daftarkan variabel ini ke Tailwind v4 */

@@ -3,7 +3,7 @@ import { ThemeToggle } from "@/components/theme-toogle";
 
 export default function Home() {
   return (
-    <div className="max-w-2xl mx-auto items-center">
+    <div className="max-w-7xl mx-auto items-center p-2">
       <Navbar />
     </div>
   );
