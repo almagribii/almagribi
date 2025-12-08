@@ -16,11 +16,11 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="px-4 py-2 rounded-lg font-medium transition-colors
+      className="px-4 py-2 rounded-lg text-xs transition-colors
                  bg-gray-200 text-gray-900 hover:bg-gray-300
                  dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
     >
-      {theme === "dark" ? "🌞 Ganti ke Light" : "🌙 Ganti ke Dark"}
+      {theme === "dark" ? "🌞" : "🌙"}
     </button>
   );
 }
