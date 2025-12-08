@@ -1,10 +1,13 @@
 import { Navbar } from "@/components/navbar";
 import { ThemeToggle } from "@/components/theme-toogle";
+import { HeroSection } from "./(component)/HeroSection";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto items-center p-2">
+    <div>
       <Navbar />
+      <HeroSection/>
+      <HeroSection/>
     </div>
   );
 }
