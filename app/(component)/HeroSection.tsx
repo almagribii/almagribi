@@ -1,4 +1,3 @@
-import LogoLoop from "@/components/LogoLoop";
 import TextType from "@/components/TextType";
 import { FaFacebookF, FaTelegramPlane, FaPinterestP } from "react-icons/fa";
 import {
@@ -77,21 +76,7 @@ export const HeroSection = () => {
           </div>
           <div className="w-full md:w-1/2 flex justify-center p-4"></div>
         </div>
-      {/* <div className="max-w-5xl mx-auto w-full mt-16 px-4">
-        <LogoLoop
-          className="max-w-7xl bottom-0"
-          logos={techLogos}
-          speed={120}
-          direction="left"
-          logoHeight={48}
-          gap={40}
-          hoverSpeed={0}
-          scaleOnHover
-          fadeOut
-          fadeOutColor="#ffffff"
-          ariaLabel="Technology partners"
-        />
-      </div> */}
+      
     </section>
   );
 };
