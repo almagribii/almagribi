@@ -4,7 +4,7 @@ export const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto">
-        <div className="flex bg-card justify-between items-center p-4 mt-4 shadow-xl rounded-full px-8 text-xs ">
+        <div className="flex bg-card justify-between items-center p-4 mt-4 shadow-xl rounded-full px-8 text-xs mx-2">
           <div className="mt-1 text-xl font-bold">
             <span className="text-foreground dark:text-foreground">
               <span className="hoverText text-hover-primary">A</span>
