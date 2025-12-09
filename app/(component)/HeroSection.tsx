@@ -92,13 +92,13 @@ export const HeroSection = () => {
 
               <div className="space-y-2 mt-4">
                 <p className="text-base font-semibold transition duration-300 hover:text-primary/80">
-                  25 Tahun
+                  Informatic Engineering
                 </p>
                 <p className="text-base font-semibold transition duration-300 hover:text-primary/80">
-                  Jakarta, Indonesia
+                  20 Years Old
                 </p>
                 <p className="text-base font-semibold transition duration-300 hover:text-primary/80">
-                  Mencari Peluang Baru
+                  Ponorogo, Indonesia
                 </p>
               </div>
             </div>
