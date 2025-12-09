@@ -65,7 +65,7 @@ export const projects: PortfolioItem[] = [
     title: "MasjidQu",
     description:
       "A community management platform designed for mosques, facilitating event announcements and daily schedule notifications.",
-    imageSrc: "/projects/5.webp",
+    imageSrc: "/projects/2.webp",
     demoUrl: "#",
     sourceUrl: "https://github.com/almagribii/masjid_unida",
     techStacks: ["Gradle", "Kotlin", "Spring Boot", "MySQL"],
@@ -75,7 +75,7 @@ export const projects: PortfolioItem[] = [
     title: "Health Center",
     description:
       "A web portal for a health center, enabling patients to securely record, store, and manage their medical notes and appointments.",
-    imageSrc: "/projects/7.webp",
+    imageSrc: "/projects/3.webp",
     demoUrl: "#",
     sourceUrl: "https://github.com/almagribii/dmc_demo_compose",
     techStacks: [
@@ -91,7 +91,7 @@ export const projects: PortfolioItem[] = [
     title: "QuizLab Api",
     description:
       "A robust RESTful API built for managing quizzes, questions, and user attempts, facilitating automated testing platforms.",
-    imageSrc: "/projects/6.webp",
+    imageSrc: "/projects/4.webp",
     demoUrl: "#",
     sourceUrl: "https://github.com/almagribii/QuizLab",
     techStacks: ["Java", "Spring Boot", "Docker"],
@@ -101,7 +101,7 @@ export const projects: PortfolioItem[] = [
     title: "MaqraDars",
     description:
       "An educational platform designed for students to access and manage study materials, assignments, and lesson schedules for Maqra.",
-    imageSrc: "/projects/4.webp",
+    imageSrc: "/projects/5.webp",
     demoUrl: "#",
     sourceUrl: "https://github.com/almagribii/MaqraDars",
     techStacks: [
@@ -117,7 +117,7 @@ export const projects: PortfolioItem[] = [
     title: "Seranah Unida Gontor",
     description:
       "A comprehensive application for managing correspondence and archiving official documents for University",
-    imageSrc: "/projects/2.webp",
+    imageSrc: "/projects/6.webp",
     demoUrl: "https://seranah.unida.gontor.ac.id",
     sourceUrl: "",
     techStacks: ["ReactJS", "Tailwind CSS", "Vite"],
@@ -127,7 +127,7 @@ export const projects: PortfolioItem[] = [
     title: "Nutrisys",
     description:
       "A nutrition tracking system that allows users to monitor calorie intake, manage diet plans, and view nutritional facts.",
-    imageSrc: "/projects/3.webp",
+    imageSrc: "/projects/7.webp",
     demoUrl: "https://nutrisys.my.id",
     sourceUrl: "#",
     techStacks: [
