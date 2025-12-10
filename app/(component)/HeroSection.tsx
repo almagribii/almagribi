@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const HeroSection = () => {
   return (
-    <section className="flex min-h-[80vh] md:min-h-screen items-center justify-center flex-col pt-24 md:py-0">
+    <section className="flex min-h-[80vh] md:min-h-screen items-center justify-center flex-col pt-24 md:py-0" id="hero">
       <div className="max-w-7xl mx-auto w-full flex flex-col-reverse md:flex-row items-center justify-between p-4 space-y-10 md:space-y-0 md:space-x-12">
         {/* Sisi Kiri - Konten Teks */}
         <div className="w-full md:w-1/2 p-0 md:p-4 text-center md:text-left">

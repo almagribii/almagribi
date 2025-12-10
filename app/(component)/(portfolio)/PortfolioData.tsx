@@ -308,12 +308,12 @@ export const stackIcons: TechStackType[] = [
   {
     id: 328,
     name: "Next JS",
-    icon: <SiNextdotjs className="w-full h-full text-[#ffffff]" />,
+    icon: <SiNextdotjs className="w-full h-full text-[#000000]" />,
   },
   {
     id: 329,
     name: "Chakra",
-    icon: <SiChakraui className="w-full h-full text-[#ffffff]" />,
+    icon: <SiChakraui className="w-full h-full text-[#0d3820]" />,
   },
   {
     id: 330,
@@ -325,9 +325,5 @@ export const stackIcons: TechStackType[] = [
     name: "Gemini",
     icon: <SiGooglegemini className="w-full h-full text-[#4285F4]" />,
   },
-  {
-    id: 332,
-    name: "Supabase",
-    icon: <SiOpenai className="w-full h-full text-[#ffffff]" />,
-  },
+ 
 ];

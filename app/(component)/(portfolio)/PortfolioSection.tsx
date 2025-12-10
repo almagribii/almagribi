@@ -1,4 +1,3 @@
-// src/components/Portfolio/PortfolioSection.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -9,20 +8,18 @@ import {
   stackIcons,
   PortfolioItem,
   TechStackType,
-} from "./PortfolioData"; // Impor data dan tipe
-import { ProjectCard } from "./ProjectCard"; // Impor sub-komponen
-import { TechStackIcon } from "./TechStackIcon"; // Impor sub-komponen
-import { TabButton } from "./TabButton"; // Impor sub-komponen
+} from "./PortfolioData"; 
+import { ProjectCard } from "./ProjectCard"; 
+import { TechStackIcon } from "./TechStackIcon";
+import { TabButton } from "./TabButton"; 
 
 type ActiveTab = "projects" | "certificates" | "techstack";
 
-// --- KOMPONEN UTAMA PORTFOLIO SECTION ---
 
 export const PortfolioSection = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>("projects");
   const [showAll, setShowAll] = useState(false);
 
-  // LOGIKA RESPONSIVE LIMIT (3 di HP, 6 di Desktop)
   const getResponsiveLimit = (width: number) => (width < 768 ? 3 : 6);
   const [responsiveMaxItems, setResponsiveMaxItems] = useState(
     getResponsiveLimit(typeof window !== "undefined" ? window.innerWidth : 768)
@@ -37,7 +34,6 @@ export const PortfolioSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // --- LOGIKA DATA YANG DITAMPILKAN ---
   let currentItems: PortfolioItem[] | TechStackType[] = [];
   let isTechStack = false;
 
@@ -58,7 +54,6 @@ export const PortfolioSection = () => {
   const showSeeLessButton =
     !isTechStack && currentItems.length > responsiveMaxItems && showAll;
 
-  // --- FUNGSI RENDER KONTEN BERDASARKAN TAB AKTIF ---
   const renderContent = () => {
     if (isTechStack) {
       return (
@@ -79,11 +74,9 @@ export const PortfolioSection = () => {
     );
   };
 
-  // --- RENDER UTAMA ---
   return (
     <section className="py-20 md:py-32 bg-background relative" id="portfolio">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HEADING SECTION */}
         <div className="text-center mb-16" data-aos="fade-down">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
             Portfolio Showcase

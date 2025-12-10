@@ -5,51 +5,74 @@
 :root {
   font-family: "Merriweather", serif;
 
-  /* --- Warna untuk Light Mode (DIPERBAIKI) --- */
+  /* --- Light Mode Palette --- */
   
-  /* Midnight Blue Baru */
-  --midnight-blue: #191970; /* Midnight Blue */
-  
-  /* Latar Belakang & Teks */
-  --background: #FDFCF5; /* Soft Cream White (Lebih lembut dari putih murni) */
-  --foreground: var(--midnight-blue); /* Midnight Blue untuk teks utama */
+  /* CORE COLORS */
+  --background: #FAF8F3; /* Soft Beige Cream */
+  --foreground: #3C3C3C; /* Dark Charcoal (Teks utama) */
+  --border: #E0E0E0; /* Soft Light Gray */
+  --input: #E0E0E0; /* Soft Light Gray */
+  --ring: #DAB45D; /* Primary color for focus rings */
+  --radius: 0.625rem;
 
-  /* Kartu & Elemen Sekunder */
-  --card: #EBE0D0; /* Macadamia yang lebih terang/lembut */
-  --card-foreground: var(--midnight-blue); /* Midnight Blue */
+  /* PRIMARY (Action/Highlight Color: Gold) */
+  --primary: #DAB45D; 
+  --primary-foreground: #FFFFFF; /* Putih (Teks kontras pada Gold) */
 
-  /* Warna Aksi/Primer */
-  --primary: #DAB45D; /* Gold */
-  --primary-foreground: #ffffff; /* Putih (Kontras tajam di atas Gold) */
+  /* CARD & POPOVER */
+  --card: #FFFFFF; /* Putih Murni */
+  --card-foreground: #3C3C3C; /* Dark Charcoal */
+  --popover: #FFFFFF;
+  --popover-foreground: #3C3C3C;
 
-  /* Batas/Border */
-  --border: #e0e0e0; /* Putih keabu-abuan yang lembut */
+  /* SECONDARY & MUTED (Backgrounds for subtle elements) */
+  --secondary: #F0F0F0; /* Slightly lighter than border */
+  --secondary-foreground: #3C3C3C;
+  --muted: #F0F0F0;
+  --muted-foreground: #7D7D7D; /* Medium Gray for secondary text */
+
+  /* ACCENT & DESTRUCTIVE */
+  --accent: #F0F0F0;
+  --accent-foreground: #3C3C3C;
+  --destructive: #EF4444; /* Red for errors/destruction */
+  --destructive-foreground: #FFFFFF;
 }
 
-/* 2. Override variabel saat masuk Dark Mode (TETAP BAGUS) */
+/* 2. Override variabel saat masuk Dark Mode */
 .dark {
-  /* Midnight Blue Baru */
-  --midnight-blue: #191970; 
+  /* --- Dark Mode Palette --- */
 
-  /* --- Warna untuk Dark Mode --- */
+  /* CORE COLORS */
+  --background: #0F0F0F; /* Hampir Hitam */
+  --foreground: #F0E9D5; /* Soft Creamy Light */
+  --border: #2C2C2C; /* Darker Border */
+  --input: #2C2C2C;
+  --ring: #DAB45D; 
   
-  /* Latar Belakang & Teks */
-  --background: #0a0a0a; /* Hampir Hitam */
-  --foreground: #E4CEB6; /* Macadamia */
+  /* PRIMARY (Action/Highlight Color: Gold) */
+  --primary: #DAB45D; 
+  --primary-foreground: #0F0F0F; /* Hampir Hitam (Teks kontras pada Gold) */
 
-  /* Kartu & Elemen Sekunder */
-  --card: #171717; /* Hampir hitam agar tetap gelap */
+  /* CARD & POPOVER */
+  --card: #1A1A1A; /* Dark Gray Card */
   --card-foreground: #DAB45D; /* Gold */
+  --popover: #1A1A1A;
+  --popover-foreground: #F0E9D5;
 
-  /* Warna Aksi/Primer */
-  --primary: #DAB45D; /* Gold */
-  --primary-foreground: #0a0a0a; /* Hampir Hitam (Teks di atas Gold) */
+  /* SECONDARY & MUTED */
+  --secondary: #262626;
+  --secondary-foreground: #F0E9D5;
+  --muted: #262626;
+  --muted-foreground: #A1A1A1; /* Lighter Gray for secondary text */
 
-  /* Batas/Border */
-  --border: #262626; 
+  /* ACCENT & DESTRUCTIVE */
+  --accent: #262626;
+  --accent-foreground: #F0E9D5;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
 }
 
-/* 3. Daftarkan variabel ini ke Tailwind v4 */
+/* 3. Daftarkan variabel ini ke Tailwind */
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -60,16 +83,37 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
   --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
-/* Utilitas dasar */
-body {
-  background-color: var(--background);
-  color: var(--foreground);
+/* 4. Terapkan kelas dasar dan radius */
+@layer base {
+  :root {
+    --radius: 0.625rem; /* Default radius */
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-/* Hover Text (Tidak Berubah) */
+/* 5. Utilitas & Hover */
 .hoverText {
   display: inline-block;
   transition: transform 0.3s ease-out, color 0.3s ease-out;

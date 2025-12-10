@@ -69,7 +69,6 @@ const educations = [
       "Completed comprehensive high-level education focusing on leadership, public speaking, Arabic & English proficiency, alongside traditional Islamic and general knowledge curriculum.",
   },
 ];
-// 2. Komponen Item Timeline (Diperbarui untuk Responsif)
 const TimelineItem = ({
   icon,
   title,
@@ -78,29 +77,19 @@ const TimelineItem = ({
   description,
 }: TimelineItemProps) => (
   <div className="flex relative pb-10 last:pb-0">
-    {" "}
-    {/* Menambah pb-10 agar jarak vertikal lebih lega */}
-    {/* Garis Vertikal */}
     <div className="absolute inset-0 flex items-center justify-center w-6 h-full">
       <div className="h-full w-0.5 bg-border pointer-events-none last:hidden"></div>
     </div>
-    {/* Lingkaran Titik (Icon) */}
     <div className="shrink-0 w-8 h-8 rounded-full bg-primary inline-flex items-center justify-center text-primary-foreground relative z-10 shadow-lg border-2 border-primary/50">
       {icon}
     </div>
-    {/* Konten */}
     <div className="grow pl-4 md:pl-6 pt-0.5">
-      {" "}
-      {/* Mengurangi padding di HP (pl-4) */}
       <div className="flex flex-col mb-1">
-        {" "}
-        {/* Selalu flex-col (tumpuk) di HP */}
+     
         <h3 className="text-lg sm:text-xl font-bold text-foreground">
-          {" "}
-          {/* Menggunakan text-lg di HP */}
+        
           {title}
         </h3>
-        {/* Durasi diletakkan di bawah judul dan di atas subtitle */}
         <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full mt-1 self-start">
           {duration}
         </span>
@@ -108,7 +97,6 @@ const TimelineItem = ({
       <p className="text-sm text-card-foreground/80 mb-2 font-semibold mt-1">
         {subtitle}
       </p>{" "}
-      {/* Menggunakan text-sm di HP */}
       <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed">
         {description}
       </p>{" "}
@@ -117,19 +105,14 @@ const TimelineItem = ({
   </div>
 );
 
-// 3. Komponen Utama Experience Section (Diperbarui untuk Judul)
 
 export const ExperienceSection = () => {
   return (
     <section className="py-20 md:py-32 bg-background" id="experience">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Judul Bagian */}
         <div className="text-center mb-12 md:mb-16" data-aos="fade-down">
-          {" "}
-          {/* Mengurangi margin di HP */}
           <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-3">
-            {" "}
-            {/* Mengurangi ukuran font Judul di HP */}
+         
             Experience & Education
           </h2>
           <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto">
@@ -137,21 +120,15 @@ export const ExperienceSection = () => {
           </p>
         </div>
 
-        {/* Tata Letak 2 Kolom (di desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          {" "}
-          {/* Mengurangi gap di HP */}
-          {/* Kolom Kiri: Experience */}
+    
           <div data-aos="fade-right" data-aos-duration="1500">
             <div className="flex items-center space-x-3 mb-6">
-              {" "}
-              {/* Mengurangi margin di HP */}
+           
               <FiBriefcase className="w-7 h-7 text-primary" />{" "}
-              {/* Mengurangi ukuran ikon header */}
               <h3 className="text-2xl sm:text-3xl font-bold text-card-foreground">
                 Experience
-              </h3>{" "}
-              {/* Mengurangi ukuran font sub-judul di HP */}
+              </h3>
             </div>
 
             <div className="relative">
