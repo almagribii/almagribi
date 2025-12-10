@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model Comment {
+  id            String    @id @default(dbgenerated("uuid_generate_v4()")) @map("id")
+  name          String    @map("name")
+  message       String    @map("message")
+  profile_emoji String    @map("profile_emoji")
+  created_at    DateTime  @default(now()) @map("created_at")
+
+  @@map("Comment")
+}
+
+model ContactMessage {
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @map("id")
+  name      String    @map("name")
+  email     String    @map("email")
+  message   String    @map("message")
+  created_at DateTime @default(now()) @map("created_at")
+
+  @@map("ContactMessage")
+}
