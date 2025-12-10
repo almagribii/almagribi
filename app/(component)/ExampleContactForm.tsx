@@ -32,7 +32,6 @@ export default function ExampleContactForm() {
 
     try {
       await sendMessage(formData);
-      // Reset form
       setFormData({ name: "", email: "", message: "" });
       alert("Pesan berhasil dikirim!");
     } catch (err) {
@@ -42,10 +41,11 @@ export default function ExampleContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    // Styling form disesuaikan ke Dark Mode dan layout modern
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium">
-          Nama
+        <label htmlFor="name" className="sr-only">
+          Nama Anda
         </label>
         <input
           type="text"
@@ -53,17 +53,18 @@ export default function ExampleContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Masukkan nama Anda"
+          placeholder="Nama Anda" // Sesuai dengan gambar
           required
           minLength={2}
           maxLength={100}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          // Gaya input baru: Penuh, border, bg input dark
+          className="w-full px-4 py-3 bg-input border border-border rounded-(--radius) placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium">
-          Email
+        <label htmlFor="email" className="sr-only">
+          Email Anda
         </label>
         <input
           type="email"
@@ -71,14 +72,15 @@ export default function ExampleContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="contoh@example.com"
+          placeholder="Email Anda" // Sesuai dengan gambar
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          // Gaya input baru
+          className="w-full px-4 py-3 bg-input border border-border rounded-(--radius) placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium">
+        <label htmlFor="message" className="sr-only">
           Pesan
         </label>
         <textarea
@@ -86,22 +88,25 @@ export default function ExampleContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Tulis pesan Anda di sini"
+          placeholder="Kirim saya pesan dan mari kita bicara..." // Sesuai dengan gambar
           required
           minLength={10}
           maxLength={2000}
-          rows={6}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          rows={7}
+          // Gaya input baru
+          className="w-full px-4 py-3 bg-input border border-border rounded-(--radius) placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200 resize-none"
         />
       </div>
 
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-destructive text-sm font-medium">{error}</p>}
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 disabled:bg-gray-400"
+        // Tombol Primary (Gold) dengan teks kontras
+        className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-(--radius) font-semibold hover:bg-ring disabled:bg-muted disabled:text-muted-foreground transition-colors duration-200"
       >
+        <span className="text-lg">✉️</span>
         {loading ? "Mengirim..." : "Kirim Pesan"}
       </button>
     </form>
