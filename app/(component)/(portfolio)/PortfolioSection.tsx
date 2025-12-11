@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { FiCode, FiAward, FiSettings, FiChevronDown } from "react-icons/fi";
 import {
   projects,
@@ -8,13 +9,12 @@ import {
   stackIcons,
   PortfolioItem,
   TechStackType,
-} from "./PortfolioData"; 
-import { ProjectCard } from "./ProjectCard"; 
+} from "./PortfolioData";
+import { ProjectCard } from "./ProjectCard";
 import { TechStackIcon } from "./TechStackIcon";
-import { TabButton } from "./TabButton"; 
+import { TabButton } from "./TabButton";
 
 type ActiveTab = "projects" | "certificates" | "techstack";
-
 
 export const PortfolioSection = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>("projects");
@@ -65,6 +65,17 @@ export const PortfolioSection = () => {
       );
     }
 
+    // For certificates we render only the images and provide a modal zoom
+    if (activeTab === "certificates") {
+      return (
+        <CertificatesGrid
+          items={itemsToShow as PortfolioItem[]}
+          onImageClick={(src) => setSelectedImage(src)}
+          modalOpen={!!selectedImage}
+        />
+      );
+    }
+
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
         {(itemsToShow as PortfolioItem[]).map((item) => (
@@ -73,6 +84,18 @@ export const PortfolioSection = () => {
       </div>
     );
   };
+
+  // modal state for certificate zoom
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // close modal on ESC
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <section className="py-20 md:py-32 bg-background relative" id="portfolio">
@@ -163,6 +186,75 @@ export const PortfolioSection = () => {
             )}
         </div>
       </div>
+
+      {/* Certificate modal overlay (renders when selectedImage is set) */}
+      {selectedImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          onClick={(e) => {
+            // close when clicking backdrop
+            if (e.target === e.currentTarget) setSelectedImage(null);
+          }}
+        >
+          <div className="relative max-w-[90%] max-h-[90%] p-4">
+            <button
+              aria-label="Close"
+              className="absolute -top-2 -right-2 z-50 bg-card/80 text-foreground rounded-full p-2 hover:bg-card"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✕
+            </button>
+            <div className="rounded-lg overflow-hidden shadow-2xl">
+              <Image
+                src={selectedImage}
+                alt="Certificate"
+                width={1600}
+                height={1000}
+                className="object-contain max-h-[80vh] w-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
+
+// Helper: grid for certificates (images only)
+function CertificatesGrid({
+  items,
+  onImageClick,
+  modalOpen,
+}: {
+  items: PortfolioItem[];
+  onImageClick: (src: string) => void;
+  modalOpen: boolean;
+}) {
+  return (
+    <div
+      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-8 transition-all duration-200 ${
+        modalOpen ? "filter blur-sm pointer-events-none" : ""
+      }`}
+    >
+      {items.map((it) => (
+        <div
+          key={it.id}
+          className="cursor-pointer overflow-hidden rounded-lg bg-card text-center shadow-md"
+          onClick={() => onImageClick(it.imageSrc)}
+        >
+          <div className="relative w-full h-56 sm:h-48 md:h-64 lg:h-56">
+            <Image
+              src={it.imageSrc}
+              alt={it.title}
+              layout="fill"
+              objectFit="cover"
+              className="transform transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

@@ -1,16 +1,8 @@
-// app/(component)/ExampleCommentForm.tsx
-/**
- * Contoh komponen untuk mengirim komentar
- * Gunakan sebagai referensi untuk komponen Anda
- */
-
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-// PASTIKAN PATH KE HOOK ANDA SUDAH BENAR:
+import { useState, useEffect } from "react";
 import { useComments, Comment } from "@/lib/hooks/useComments";
 
-// --- DAFTAR EMOJI YANG BANYAK ---
 const EMOJI_OPTIONS = [
   "😊",
   "😀",
@@ -50,7 +42,7 @@ const EMOJI_OPTIONS = [
   "🍕",
 ];
 
-export default function ExampleCommentForm() {
+export default function CommentForm() {
   const { comments, fetchComments, addComment, loading, error } = useComments();
   const [formData, setFormData] = useState({
     name: "",
@@ -77,8 +69,9 @@ export default function ExampleCommentForm() {
     try {
       await addComment(formData);
       setFormData({ name: "", message: "", profile_emoji: EMOJI_OPTIONS[0] });
-      setSuccess("Komentar berhasil dikirim!");
+      setSuccess("Comment successfully posted!");
       setTimeout(() => setSuccess(null), 3000);
+      fetchComments();
     } catch (err) {
       console.error("Error:", err);
     }
@@ -90,22 +83,28 @@ export default function ExampleCommentForm() {
 
   return (
     <div className="space-y-6">
-      {/* Form Komentar */}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Nama Input dan Emoji Select */}
-        <div className="flex items-center gap-3">
-          {/* Select Emoji */}
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4"
+        // initial="hidden"
+        // animate="show"
+        // variants={formContainerVariant}
+      >
+        <div
+          className="flex items-center gap-3"
+          // variants={formItemVariant}
+        >
           <div className="relative w-20">
             <label htmlFor="profile_emoji" className="sr-only">
-              Pilih Emoji Profil
+              Select Profile Emoji
             </label>
             <select
               id="profile_emoji"
               name="profile_emoji"
               value={formData.profile_emoji}
               onChange={handleChange}
-              aria-label="Pilih Emoji Profil"
-              className="appearance-none w-full text-2xl text-center px-2 py-3 bg-input border border-border rounded-(--radius) focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200 cursor-pointer"
+              aria-label="Select Profile Emoji"
+              className="appearance-none w-full text-2xl text-center px-2 py-3 bg-input border border-border rounded-xl focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200 cursor-pointer"
             >
               {EMOJI_OPTIONS.map((emoji) => (
                 <option
@@ -122,10 +121,9 @@ export default function ExampleCommentForm() {
             </span>
           </div>
 
-          {/* Nama Input */}
           <div className="flex-1">
             <label htmlFor="name" className="sr-only">
-              Nama
+              Name
             </label>
             <input
               type="text"
@@ -137,15 +135,14 @@ export default function ExampleCommentForm() {
               required
               minLength={2}
               maxLength={100}
-              className="w-full px-4 py-3 bg-input border border-border rounded-(--radius) placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200"
+              className="w-full px-4 py-3 bg-input border border-border rounded-xl placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200"
             />
           </div>
         </div>
 
-        {/* Message Input */}
-        <div>
+        <div /* variants={formItemVariant} */>
           <label htmlFor="message" className="sr-only">
-            Pesan
+            Message
           </label>
           <textarea
             id="message"
@@ -157,21 +154,28 @@ export default function ExampleCommentForm() {
             minLength={5}
             maxLength={1000}
             rows={5}
-            className="w-full px-4 py-3 bg-input border border-border rounded-(--radius) placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200 resize-y"
+            className="w-full px-4 py-3 bg-input border border-border rounded-xl placeholder:text-muted-foreground focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200 resize-y"
           />
         </div>
 
-        {/* Info Max File Size (dibiarkan kosong karena diganti emoji) */}
-        <div className="text-xs text-muted-foreground text-center">
-          *Pilih emoji profil di samping nama.
+        <div
+          className="text-xs text-muted-foreground text-center"
+          // variants={formItemVariant}
+        >
+          *Select a profile emoji next to your name.
         </div>
 
-        {/* Submit Button & Messages */}
-        <div className="flex flex-col items-center justify-center gap-3 pt-2">
+        <div
+          className="flex flex-col items-center justify-center gap-3 pt-2"
+          // variants={formItemVariant}
+        >
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-(--radius) font-semibold hover:bg-ring disabled:bg-muted disabled:text-muted-foreground transition-colors duration-200"
+            className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-xl font-semibold hover:bg-ring disabled:bg-muted disabled:text-muted-foreground transition-colors duration-200"
+            // whileHover={{ scale: 1.02 }}
+            // whileTap={{ scale: 0.98 }}
+            // transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             <span className="text-lg">📩</span>
             {loading ? "Posting..." : "Post Comment"}
@@ -183,10 +187,8 @@ export default function ExampleCommentForm() {
         </div>
       </form>
 
-      {/* Daftar Komentar */}
       <div className="space-y-4 pt-4 border-t border-border">
-        {/* Pinned Comment (Simulasi) */}
-        <article className="p-4 bg-secondary rounded-(--radius) border-2 border-primary/50 shadow-md">
+        <article className="p-4 bg-secondary rounded-xl border-2 border-primary/50 shadow-md">
           <div className="flex items-start gap-4">
             <div className="text-3xl">📌</div>
             <div className="flex-1">
@@ -198,7 +200,7 @@ export default function ExampleCommentForm() {
                   </span>
                 </h4>
                 <time className="text-xs text-muted-foreground">
-                  Des 11, 2025
+                  Dec 11, 2025
                 </time>
               </div>
               <p className="mt-1 text-sm text-foreground">
@@ -208,21 +210,27 @@ export default function ExampleCommentForm() {
           </div>
         </article>
 
-        {/* === START: WADAH SCROLL INTERNAL === */}
-        <div className="h-96 overflow-y-auto pr-2 space-y-4">
+        <div
+          className="h-96 overflow-y-auto pr-2 space-y-4"
+          // initial="hidden"
+          // whileInView="show"
+          // viewport={{ once: true, amount: 0 }}
+          // variants={commentListVariant}
+        >
           {loading && comments.length === 0 ? (
             <p className="text-sm text-muted-foreground text-center">
-              Memuat komentar...
+              Loading comments...
             </p>
           ) : comments.length === 0 ? (
             <p className="text-sm text-muted-foreground text-center">
-              Belum ada komentar. Jadilah yang pertama!
+              No comments yet. Be the first!
             </p>
           ) : (
             comments.map((c: Comment) => (
               <article
                 key={c.id}
-                className="p-4 bg-secondary rounded-(--radius) border border-border"
+                className="p-4 bg-secondary rounded-xl border border-border"
+                // variants={commentItemVariant}
               >
                 <div className="flex items-start gap-4">
                   <div className="text-2xl">{c.profile_emoji || "🙂"}</div>
@@ -232,7 +240,7 @@ export default function ExampleCommentForm() {
                         {c.name}
                       </h4>
                       <time className="text-xs text-muted-foreground">
-                        {new Date(c.created_at).toLocaleDateString("id-ID", {
+                        {new Date(c.created_at).toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
                           year: "numeric",

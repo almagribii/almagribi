@@ -152,21 +152,28 @@ export const projects: PortfolioItem[] = [
 ];
 export const certificates: PortfolioItem[] = [
   {
-    id: 101,
-    title: "Full-Stack Web Development",
-    description:
-      "Sertifikasi dari platform ternama untuk keahlian dalam Full-Stack MERN.",
-    imageSrc: "/projects/9.webp",
+    id: 201,
+    title: "",
+    description: "",
+    imageSrc: "/certificates/Pasted image (2).png",
     demoUrl: "#",
     sourceUrl: "#",
     techStacks: [],
   },
   {
-    id: 102,
-    title: "Advanced Cloud Computing",
-    description:
-      "Sertifikasi keahlian dalam mengelola dan mengoptimalkan layanan cloud (AWS/Azure).",
-    imageSrc: "/projects/8.webp",
+    id: 202,
+    title: "",
+    description: "",
+    imageSrc: "/certificates/Pasted image.png",
+    demoUrl: "#",
+    sourceUrl: "#",
+    techStacks: [],
+  },
+  {
+    id: 203,
+    title: "",
+    description: "",
+    imageSrc: "/certificates/Pasted image (3).png",
     demoUrl: "#",
     sourceUrl: "#",
     techStacks: [],
@@ -222,7 +229,7 @@ export const stackIcons: TechStackType[] = [
   {
     id: 311,
     name: "Vercel",
-    icon: <SiVercel className="w-full h-full text-[#000000] dark:text-white" />,
+    icon: <SiVercel className="w-full h-full " />,
   },
   {
     id: 312,
@@ -308,7 +315,7 @@ export const stackIcons: TechStackType[] = [
   {
     id: 328,
     name: "Next JS",
-    icon: <SiNextdotjs className="w-full h-full text-[#000000]" />,
+    icon: <SiNextdotjs className="w-full h-full" />,
   },
   {
     id: 329,
