@@ -6,6 +6,9 @@ import { Merriweather } from "next/font/google";
 export const metadata: Metadata = {
   title: "Brucad Al Magribi",
   description: "Fullstack Developer",
+  icons: {
+    icon: '/brucad.jpeg', 
+  },
 };
 
 const merriweather = Merriweather({
