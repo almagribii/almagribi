@@ -25,8 +25,8 @@
 
 ### 💡 Example Components
 
-- ✅ `app/(component)/ExampleCommentForm.tsx` - Form untuk tambah komentar
-- ✅ `app/(component)/ExampleContactForm.tsx` - Form untuk kirim kontak
+- ✅ `app/(component)/(contact)/CommentForm.tsx` - Form untuk tambah komentar
+- ✅ `app/(component)/(contact)/ContactForm.tsx` - Form untuk kirim kontak
 
 ### 📖 Documentation
 
