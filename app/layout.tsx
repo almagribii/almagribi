@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "Brucad Al Magribi Portfolio",
     images: [
       {
-        url: "/brucad-social.jpeg", 
+        url: "/brucad.jpeg", 
         width: 1200,
         height: 630,
         alt: "Brucad Al Magribi - Fullstack Developer Portfolio",
