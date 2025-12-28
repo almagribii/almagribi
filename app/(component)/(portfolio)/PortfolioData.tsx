@@ -149,6 +149,16 @@ export const projects: PortfolioItem[] = [
     sourceUrl: "",
     techStacks: ["Next JS", "Tailwind CSS", "Supabase"],
   },
+  {
+    id: 9,
+    title: "Hooks Lab",
+    description:
+      "A React “Hooks Lab” playground built with Vite and Tailwind, showcasing practical demos for core hooks.",
+    imageSrc: "/projects/9.png",
+    demoUrl: "https://hookslab.almagribi.my.id",
+    sourceUrl: "https://github.com/almagribii/hooks-lab",
+    techStacks: ["ReactJS", "Tailwind CSS", "Vite", "Vercel"],
+  },
 ];
 export const certificates: PortfolioItem[] = [
   {
