@@ -159,6 +159,26 @@ export const projects: PortfolioItem[] = [
     sourceUrl: "https://github.com/almagribii/hooks-lab",
     techStacks: ["ReactJS", "Tailwind CSS", "Vite", "Vercel"],
   },
+  {
+    id: 10,
+    title: "Ospek Unida Gontor",
+    description:
+      "An application for managing orientation events at Unida Gontor.",
+    imageSrc: "/projects/10.png",
+    demoUrl: "https://ospek.unida.gontor.ac.id",
+    sourceUrl: "",
+    techStacks: ["Next JS", "Tailwind CSS", "Vercel"],
+  },
+  {
+    id: 11,
+    title: "Nazzava",
+    description:
+      "An application for environment education and waste management, providing resources and tools for sustainable living.",
+    imageSrc: "/projects/11.png",
+    demoUrl: "https://nazzava.qeem.site",
+    sourceUrl: "",
+    techStacks: ["Next JS", "Tailwind CSS", "Vite", "Vercel"],
+  },
 ];
 export const certificates: PortfolioItem[] = [
   {
