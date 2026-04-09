@@ -1,11 +1,23 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import ContactForm from "@/app/(component)/(contact)/ContactForm";
 import CommentForm from "@/app/(component)/(contact)/CommentForm";
+import { useComments } from "@/lib/hooks/useComments";
 import { FaLinkedin, FaInstagram, FaYoutube, FaGithub } from "react-icons/fa";
 
 export default function ContactPage() {
+  const { comments, fetchComments } = useComments();
+  const [commentCount, setCommentCount] = useState(0);
+
+  useEffect(() => {
+    fetchComments();
+  }, [fetchComments]);
+
+  useEffect(() => {
+    setCommentCount(comments.length);
+  }, [comments]);
+
   return (
     <div
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10"
@@ -79,7 +91,9 @@ export default function ContactPage() {
         </div>
 
         <div className="p-6 bg-card rounded-xl shadow-xl border border-border">
-          <h2 className="text-2xl font-bold mb-4 text-primary">Comments 📝</h2>
+          <h2 className="text-2xl font-bold mb-4 text-primary">
+            Comments 📝 <span className="text-2xl font-bold mb-4 text-primary">({commentCount})</span>
+          </h2>
           <CommentForm />
         </div>
       </div>
