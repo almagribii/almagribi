@@ -179,6 +179,36 @@ export const projects: PortfolioItem[] = [
     sourceUrl: "",
     techStacks: ["Next JS", "Tailwind CSS", "Vite", "Vercel"],
   },
+  {
+    id: 12,
+    title: "Paham",
+    description:
+      "Paham is an AI-powered study platform that helps students stop just re-reading their notes.",
+    imageSrc: "/projects/12.png",
+    demoUrl: "https://paham.almagribi.my.id",
+    sourceUrl: "",
+    techStacks: ["Next JS", "Tailwind CSS", "Vercel"],
+  },
+  {
+    id: 13,
+    title: "Cleanic",
+    description:
+      "Cleanic is an AI-powered eco-tech platform that combines a Custom CNN for instant waste classification.",
+    imageSrc: "/projects/13.png",
+    demoUrl: "https://cleanic.site",
+    sourceUrl: "",
+    techStacks: ["Next JS", "Tailwind CSS", "Vercel"],
+  },
+  {
+    id: 14,
+    title: "Argon Bakery",
+    description:
+      "A modern bakery application for managing orders, inventory, and customer relationships.",
+    imageSrc: "/projects/14.png",
+    demoUrl: "https://argon-bakery.vercel.app",
+    sourceUrl: "",
+    techStacks: ["Next JS", "CSS", "Vercel"],
+  },
 ];
 export const certificates: PortfolioItem[] = [
   {
